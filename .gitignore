@@ -2,3 +2,16 @@
 .htmlhintrc
 .stylelintrc
 .eslintrc.json
+node_modules/
+node_modules/*
+
+*/.local-chromium/
+yarn.lock
+package-lock.json
+.vscode
+*.swp
+*.pyc
+/node6
+/.dev_profile*
+
+tests/

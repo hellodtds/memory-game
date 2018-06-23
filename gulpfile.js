@@ -3,7 +3,7 @@ var log = console.log;
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
-
+var jasmineBrowser = require('gulp-jasmine-browser');
 
 gulp.task('default', function() {
 
@@ -16,8 +16,23 @@ gulp.task('default', function() {
         }))
         .pipe(gulp.dest('./css'));
 
-    log('this works!');
-    
-
-
 });
+
+
+// Third: Let's try Puppeteer: https://www.npmjs.com/package/puppeteer
+// Guess, we need Puppeteer to get `gulp-jasmine-browser` to work
+
+// Fourth: Let's get some testing going with a headless browser using gulp
+
+
+// How to run the Tests in the terminal
+gulp.task('tests', function() {
+
+    return gulp.src('tests/spec/extraSpec.js')
+    .pipe(jasmineBrowser.specRunner({console: true}))
+    .pipe(jasmineBrowser.headless({driver: 'chrome'}));
+});
+
+
+
+
