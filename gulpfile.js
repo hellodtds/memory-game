@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var jasmineBrowser = require('gulp-jasmine-browser');
+var browserSync = require('browser-sync').create();
 
 gulp.task('default', function() {
 
@@ -33,6 +34,12 @@ gulp.task('tests', function() {
     .pipe(jasmineBrowser.headless({driver: 'chrome'}));
 });
 
+// Fifth: Add browser sync
+browserSync.init({
+server: './'
+});
+
+browserSync.stream();
 
 
 
